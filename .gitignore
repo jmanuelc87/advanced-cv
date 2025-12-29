@@ -217,6 +217,7 @@ __marimo__/
 
 # Custom ignore rules
 data/
+dataset/
 logs/
 .vscode/
 .downloads/
