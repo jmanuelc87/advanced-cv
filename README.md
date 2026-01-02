@@ -36,3 +36,7 @@ The featuring relevant blocks that brings with this model are:
         - The output of the bottlenecks are recombined and expanded through concatentation and a final convolution ensuring a balance of dimensionality and feature richness.
   3. SPPF (Spatial Pyramid Pooling - Fast): Aggregates features from multiple scales by applying a max-pooling operation with kernel size = 5, then concatenates the outputs to create a rich, multi-scale feature map enhancing the model's abilty to detect objects of varying sizes. Preserves spatial relationships while reducing resolution ensuring compact and meaningful feature representation.
   4. C2PSA: splits input features into two paths one for convolutional operation and the other for attention transformations based on the PSABlock module allowing to capture both local and global feature dependecies. The attention mechanism focus on the most relevant spatial features improving the network's ability to model long-range dependencies and subtle feature interactions and performing a fusion of features that combines the outputs of convolutional and attention pathways to produce richer and more expressive feature maps enhancing the model to detect complex patterns.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IZ-DNqnv66E?si=V5cLUCL7RRva6AG2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
