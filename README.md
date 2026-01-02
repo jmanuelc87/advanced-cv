@@ -2,14 +2,40 @@
 
 ### 1. Image Classification using CNNs
 
-The folder [Image Classification](01.image_classification_cnn) contains the notebook for classifying images using the GTSRB dataset the baseline model uses the layers:
+In this [module](01.image_classification_cnn) we start by creating an image classifier using the well known Conv-Batch-Relu and MaxPooling modules this will set a baseline for image classification using the GTSRB dataset. The CBR module is a specilized layer that works with images by creating features maps that retain specifc features such as edges, textures, shapes and objects in contrast the MaxPooling layer reduces the spatial dimensions preverving the activations of the CBR modules while reducing the spatial dimensions allowing to reduce the parameter of the model and effectively creating a tensor that can be used as input to a FFN (Feed Forward Network) for classifying the image.
 
-- Convolution
-- Batch Normalization
-- ReLU
-- Max Pooling
+This approach is effective to classify images and will work as an standard way to extract features from images and creating backbones for other models and tasks while this approach is effective it can be pushed a little bit using a Spatial Tranformation Layer, before going into the details of this layer let's explain what is an affine transformation.
 
-Above the baseline is utilized the spatial transformer layer used for increasing the accuracy of the network.
+The affine transformation can be expressed in the form os a matrix multiplication followed by a vector addition and we can use it to express rotations (linear transformation), translations (vector additions), and scale operations (linear transformations), in essence an affine transformation represents a relation between two images preservesing the proportions on lines, while it does not necessarily preverves angles or lengths and mathematically can be represented as:
+
+$$
+\begin{bmatrix}
+x' \\
+y'
+\end{bmatrix}
+=
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
++
+\begin{bmatrix}
+t_x \\
+t_y
+\end{bmatrix}
+$$
+
+where:
+
+ - $a$, $b$, $c$, and $d$ encode linear operations such as rotation, scaling, and shear.
+ - $t_x$ and $t_y$ represent translation.
+ - $(x,y)$ is the original point and $(x',y')$ is the transformed point
+
+The Spatial Transformation Layer effectively tries to predict the affine transformation values by using a CBR block and FFN transforming the image before feeding it again the the classification CNN. The Spatial Transformation Layer helps minimizing the overall cost function of the network during training and It is also possible ot use spatial transformer to downsample or oversample a feature map, as one can define the output dimensions to be different to the input dimensions.
 
 ### 2. Transfer Learning
 
