@@ -12,8 +12,7 @@ $$
 \begin{bmatrix}
 x' \\
 y'
-\end{bmatrix}
-=
+\end{bmatrix} =
 \begin{bmatrix}
 a & b \\
 c & d
