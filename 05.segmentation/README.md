@@ -14,7 +14,7 @@ This experiment implements **semantic segmentation** to identify blood vessels i
 
 ## Approach
 
-1. **Architecture** — Encoder-decoder network with pretrained backbones from the TIMM library (CNN and Vision Transformer variants).
+1. **Architecture** — Encoder-decoder using a custom Unet varian with dilated convolutions, SE Blocks and Attention Gates.
 2. **Augmentation** — Albumentations pipeline with geometric and color transforms to improve robustness.
 3. **Loss functions** — Combination of Dice loss and Focal loss from the MONAI medical imaging library.
 4. **Training** — Batch size: 4, Epochs: 40, Learning rate: 1e-4, confidence threshold: 0.4.
@@ -23,7 +23,6 @@ This experiment implements **semantic segmentation** to identify blood vessels i
 ## Key Techniques
 
 - Encoder-decoder segmentation architecture
-- Pretrained TIMM backbones (ResNet, ViT, and others)
 - Albumentations-based data augmentation
 - MONAI Dice + Focal loss for class imbalance handling
 - Metric tracking during training and validation
